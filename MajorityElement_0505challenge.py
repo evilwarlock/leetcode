@@ -19,16 +19,19 @@
 # optimization using Moore's voting algorithm
 
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
+    def majorityElement(self, nums):
         major_index = 0
         count = 1
         n = len(nums)
         for i in range(n):
-            if A[major_index] == A[i]:
+            if nums[major_index] == nums[i]:
                 count = count + 1
             else:
                 count = count - 1
             if count == 0:
                 major_index = i
                 count = 1
-        return A[major_index]
+        return nums[major_index]
+
+testcase = [1,1,2,2,2,3,3]
+print(Solution.majorityElement(testcase))
